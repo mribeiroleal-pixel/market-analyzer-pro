@@ -1,0 +1,404 @@
+[2026-02-22 17:49:25,534] [INFO    ] ============================================================
+[2026-02-22 17:49:25,535] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-22 17:49:25,535] [INFO    ] ============================================================
+[2026-02-22 17:49:25,536] [INFO    ] 
+[2026-02-22 17:49:25,537] [INFO    ] OK: ClusterClosureAnalyst loaded
+[2026-02-22 17:49:25,538] [INFO    ] OK: MT5Feed loaded
+[2026-02-22 17:49:25,540] [ERROR   ] ERROR: AnalystOrchestrator: attempted relative import with no known parent package
+[2026-02-22 17:49:25,542] [INFO    ] OK: AISynthesizer loaded
+[2026-02-22 17:49:25,550] [INFO    ] OK: Database loaded
+[2026-02-22 17:49:25,550] [INFO    ] 
+[2026-02-22 17:49:25,551] [INFO    ] WebSocket Port: 8766
+[2026-02-22 17:49:25,551] [INFO    ] Symbol: XAUUSD
+[2026-02-22 17:49:25,551] [INFO    ] Weight Mode: price_weighted
+[2026-02-22 17:49:25,551] [INFO    ] 
+[2026-02-22 17:49:25,552] [ERROR   ] ERROR: Cannot initialize without AnalystOrchestrator
+[2026-02-22 17:55:41,014] [INFO    ] ============================================================
+[2026-02-22 17:55:41,015] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-22 17:55:41,015] [INFO    ] ============================================================
+[2026-02-22 17:55:41,015] [INFO    ] 
+[2026-02-22 17:55:41,016] [ERROR   ] ERROR: Failed to load Orchestrator: No module named 'backend'
+[2026-02-22 17:55:41,017] [ERROR   ] ERROR: Failed to load MT5 Feed: No module named 'backend'
+[2026-02-22 17:55:41,018] [WARNING ] WARNING: AI Synthesizer not available: No module named 'backend'
+[2026-02-22 17:55:41,018] [ERROR   ] ERROR: Failed to load Cluster Closure: No module named 'backend'
+[2026-02-22 17:55:41,019] [WARNING ] WARNING: Database not available: No module named 'backend'
+[2026-02-22 17:55:41,020] [INFO    ] 
+[2026-02-22 17:55:41,020] [INFO    ] WebSocket Port: 8766
+[2026-02-22 17:55:41,020] [INFO    ] Symbol: XAUUSD
+[2026-02-22 17:55:41,021] [INFO    ] Weight Mode: price_weighted
+[2026-02-22 17:55:41,021] [INFO    ] Database: OK (SQLite)
+[2026-02-22 17:55:41,021] [INFO    ] 
+[2026-02-22 17:55:41,021] [ERROR   ] Cannot initialize without MT5Feed
+[2026-02-22 19:00:33,173] [INFO    ] ============================================================
+[2026-02-22 19:00:33,175] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-22 19:00:33,175] [INFO    ] Modo: Liquidity Break ML Only
+[2026-02-22 19:00:33,176] [INFO    ] ============================================================
+[2026-02-22 19:00:33,176] [INFO    ] 
+[2026-02-22 19:00:33,365] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:00:33,367] [INFO    ] OK: Liquidity Break ML loaded
+[2026-02-22 19:00:33,367] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:00:33,368] [INFO    ] 
+[2026-02-22 19:00:33,368] [INFO    ] WebSocket Port: 8766
+[2026-02-22 19:00:33,368] [INFO    ] Symbol: XAUUSD
+[2026-02-22 19:00:33,368] [INFO    ] Liquidity Break Dataset: 0 quebras
+[2026-02-22 19:00:33,369] [INFO    ] 
+[2026-02-22 19:03:25,528] [INFO    ] ============================================================
+[2026-02-22 19:03:25,529] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-22 19:03:25,529] [INFO    ] Modo: Liquidity Break ML Only
+[2026-02-22 19:03:25,529] [INFO    ] ============================================================
+[2026-02-22 19:03:25,530] [INFO    ] 
+[2026-02-22 19:03:25,636] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:03:25,637] [INFO    ] OK: Liquidity Break ML loaded
+[2026-02-22 19:03:25,637] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:03:25,638] [INFO    ] 
+[2026-02-22 19:03:25,638] [INFO    ] WebSocket Port: 8766
+[2026-02-22 19:03:25,638] [INFO    ] Symbol: XAUUSD
+[2026-02-22 19:03:25,638] [INFO    ] Liquidity Break Dataset: 0 quebras
+[2026-02-22 19:03:25,639] [INFO    ] 
+[2026-02-22 19:04:36,115] [INFO    ] ============================================================
+[2026-02-22 19:04:36,116] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-22 19:04:36,117] [INFO    ] Modo: Liquidity Break ML Only
+[2026-02-22 19:04:36,117] [INFO    ] ============================================================
+[2026-02-22 19:04:36,117] [INFO    ] 
+[2026-02-22 19:04:36,304] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:04:36,305] [INFO    ] OK: Liquidity Break ML loaded
+[2026-02-22 19:04:36,306] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:04:36,306] [INFO    ] 
+[2026-02-22 19:04:36,307] [INFO    ] WebSocket Port: 8766
+[2026-02-22 19:04:36,307] [INFO    ] Symbol: XAUUSD
+[2026-02-22 19:04:36,307] [INFO    ] Liquidity Break Dataset: 0 quebras
+[2026-02-22 19:04:36,308] [INFO    ] 
+[2026-02-22 19:08:12,744] [INFO    ] ============================================================
+[2026-02-22 19:08:12,745] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-22 19:08:12,745] [INFO    ] Modo: Liquidity Break ML Only
+[2026-02-22 19:08:12,745] [INFO    ] ============================================================
+[2026-02-22 19:08:12,745] [INFO    ] 
+[2026-02-22 19:08:12,937] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:08:12,937] [INFO    ] OK: Liquidity Break ML loaded
+[2026-02-22 19:08:12,937] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:08:12,938] [INFO    ] 
+[2026-02-22 19:08:12,938] [INFO    ] WebSocket Port: 8766
+[2026-02-22 19:08:12,938] [INFO    ] Symbol: XAUUSD
+[2026-02-22 19:08:12,939] [INFO    ] Liquidity Break Dataset: 0 quebras
+[2026-02-22 19:08:12,939] [INFO    ] 
+[2026-02-22 19:08:31,811] [INFO    ] ============================================================
+[2026-02-22 19:08:31,812] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-22 19:08:31,812] [INFO    ] Modo: Liquidity Break ML Only
+[2026-02-22 19:08:31,812] [INFO    ] ============================================================
+[2026-02-22 19:08:31,812] [INFO    ] 
+[2026-02-22 19:08:31,915] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:08:31,915] [INFO    ] OK: Liquidity Break ML loaded
+[2026-02-22 19:08:31,916] [WARNING ] ⚠️ Modelo não encontrado: [Errno 2] No such file or directory: 'liquidity_break_model.pkl'
+[2026-02-22 19:08:31,916] [INFO    ] 
+[2026-02-22 19:08:31,917] [INFO    ] WebSocket Port: 8766
+[2026-02-22 19:08:31,917] [INFO    ] Symbol: XAUUSD
+[2026-02-22 19:08:31,917] [INFO    ] Liquidity Break Dataset: 0 quebras
+[2026-02-22 19:08:31,917] [INFO    ] 
+[2026-02-22 19:28:19,008] [INFO    ] ============================================================
+[2026-02-22 19:28:19,010] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-22 19:28:19,010] [INFO    ] Modo: Liquidity Break ML Only
+[2026-02-22 19:28:19,011] [INFO    ] ============================================================
+[2026-02-22 19:28:19,011] [INFO    ] 
+[2026-02-22 19:28:19,185] [INFO    ] ✅ Dataset carregado: 10 quebras
+[2026-02-22 19:28:21,965] [INFO    ] ✅ Modelo carregado: liquidity_break_model.pkl
+[2026-02-22 19:28:21,966] [INFO    ] OK: Liquidity Break ML loaded
+[2026-02-22 19:28:21,967] [INFO    ] ✅ Dataset carregado: 10 quebras
+[2026-02-22 19:28:21,969] [INFO    ] ✅ Modelo carregado: liquidity_break_model.pkl
+[2026-02-22 19:28:21,969] [INFO    ] 
+[2026-02-22 19:28:21,969] [INFO    ] WebSocket Port: 8766
+[2026-02-22 19:28:21,970] [INFO    ] Symbol: XAUUSD
+[2026-02-22 19:28:21,970] [INFO    ] Liquidity Break Dataset: 10 quebras
+[2026-02-22 19:28:21,970] [INFO    ] 
+[2026-02-23 06:30:43,642] [INFO    ] ============================================================
+[2026-02-23 06:30:43,643] [INFO    ] MARKET ANALYST PRO - WebSocket Server
+[2026-02-23 06:30:43,643] [INFO    ] Modo: Liquidity Break ML Only
+[2026-02-23 06:30:43,643] [INFO    ] ============================================================
+[2026-02-23 06:30:43,644] [INFO    ] 
+[2026-02-23 06:30:43,990] [INFO    ] OK: Liquidity Break ML loaded
+[2026-02-23 06:30:43,993] [INFO    ] OK: Dataset carregado: 10 quebras
+[2026-02-23 06:30:48,562] [INFO    ] OK: Modelo carregado: liquidity_break_model.pkl
+[2026-02-23 06:30:48,562] [INFO    ] 
+[2026-02-23 06:30:48,563] [INFO    ] WebSocket Port: 8766
+[2026-02-23 06:30:48,563] [INFO    ] Symbol: XAUUSD
+[2026-02-23 06:30:48,563] [INFO    ] Liquidity Break Dataset: 10 quebras
+[2026-02-23 06:30:48,563] [INFO    ] 
+[2026-02-23 06:30:48,667] [INFO    ] server listening on 0.0.0.0:8766
+[2026-02-23 06:30:48,668] [INFO    ] OK: WebSocket running on ws://0.0.0.0:8766
+[2026-02-23 06:30:48,668] [INFO    ] 
+[2026-02-23 06:30:48,716] [INFO    ] connection open
+[2026-02-23 06:30:48,716] [INFO    ] CLIENT [368] connected (1 total)
+[2026-02-23 07:00:22,567] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:00:22,568] [INFO    ] ws_server — MARKET ANALYST PRO — WebSocket Server
+[2026-02-23 07:00:22,568] [INFO    ] ws_server — Symbol: XAUUSD | Port: 8766 | DB: True | ML: True | Cache: True
+[2026-02-23 07:00:22,568] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:00:22,569] [INFO    ] ai_synth — groq package not installed — using rule-based synthesis
+[2026-02-23 07:00:22,659] [WARNING ] ws_server — DB disabled — No module named 'psycopg2'
+[2026-02-23 07:00:22,660] [INFO    ] cache — redis package not installed — using in-memory cache
+[2026-02-23 07:00:22,660] [INFO    ] ws_server — OK: Redis connected
+[2026-02-23 07:00:23,743] [INFO    ] outcome_pred — No model file at models/outcome_predictor.pkl
+[2026-02-23 07:00:23,743] [INFO    ] ml_inference — ML pipeline ready — no model yet (train first)
+[2026-02-23 07:00:23,744] [INFO    ] ws_server — OK: ML pipeline loaded — {'pipeline_active': False, 'model_ready': False, 'is_trained': False, 'train_size': 0, 'val_accuracy': 0.0, 'model_path': 'models/outcome_predictor.pkl', 'model_type': 'none'}
+[2026-02-23 07:00:23,871] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:00:23,871] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:00:24,366] [WARNING ] mt5_feed — MT5 connect error: invalid literal for int() with base 10: 'your-account-number' → SIMULATED mode
+[2026-02-23 07:00:24,367] [INFO    ] ws_server — Feed source: MT5_SIMULATED
+[2026-02-23 07:00:24,369] [INFO    ] websockets.server — server listening on 0.0.0.0:8766
+[2026-02-23 07:00:24,369] [INFO    ] ws_server — WebSocket running → ws://0.0.0.0:8766
+[2026-02-23 07:00:24,369] [INFO    ] ws_server — Aguardando conexões do frontend...
+[2026-02-23 07:00:28,209] [INFO    ] websockets.server — connection open
+[2026-02-23 07:00:28,209] [INFO    ] ws_server — CLIENT [8848] connected  (total=1)
+[2026-02-23 07:00:28,213] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:00:28,213] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:00:28,226] [WARNING ] mt5_feed — MT5 connect error: invalid literal for int() with base 10: 'your-account-number' → SIMULATED mode
+[2026-02-23 07:00:28,227] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:01:06,999] [INFO    ] ws_server — CLIENT [8848] disconnected (total=0)
+[2026-02-23 07:01:07,724] [INFO    ] websockets.server — connection open
+[2026-02-23 07:01:07,725] [INFO    ] ws_server — CLIENT [7008] connected  (total=1)
+[2026-02-23 07:01:07,733] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:01:07,734] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:01:07,884] [WARNING ] mt5_feed — MT5 connect error: invalid literal for int() with base 10: 'your-account-number' → SIMULATED mode
+[2026-02-23 07:01:07,885] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:04:59,288] [INFO    ] websockets.server — server closing
+[2026-02-23 07:04:59,293] [INFO    ] ws_server — CLIENT [7008] disconnected (total=0)
+[2026-02-23 07:04:59,294] [INFO    ] websockets.server — server closed
+[2026-02-23 07:05:03,105] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:05:03,105] [INFO    ] ws_server — MARKET ANALYST PRO — WebSocket Server
+[2026-02-23 07:05:03,106] [INFO    ] ws_server — Symbol: XAUUSD | Port: 8766 | DB: True | ML: True | Cache: True
+[2026-02-23 07:05:03,106] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:05:03,106] [INFO    ] ai_synth — groq package not installed — using rule-based synthesis
+[2026-02-23 07:05:03,178] [WARNING ] ws_server — DB disabled — No module named 'psycopg2'
+[2026-02-23 07:05:03,179] [INFO    ] cache — redis package not installed — using in-memory cache
+[2026-02-23 07:05:03,179] [INFO    ] ws_server — OK: Redis connected
+[2026-02-23 07:05:03,391] [INFO    ] outcome_pred — No model file at models/outcome_predictor.pkl
+[2026-02-23 07:05:03,392] [INFO    ] ml_inference — ML pipeline ready — no model yet (train first)
+[2026-02-23 07:05:03,392] [INFO    ] ws_server — OK: ML pipeline loaded — {'pipeline_active': False, 'model_ready': False, 'is_trained': False, 'train_size': 0, 'val_accuracy': 0.0, 'model_path': 'models/outcome_predictor.pkl', 'model_type': 'none'}
+[2026-02-23 07:05:03,449] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:05:03,450] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:05:03,450] [INFO    ] mt5_feed — MT5 credentials not set → SIMULATED mode
+[2026-02-23 07:05:03,451] [INFO    ] ws_server — Feed source: MT5_SIMULATED
+[2026-02-23 07:05:03,453] [INFO    ] websockets.server — server listening on 0.0.0.0:8766
+[2026-02-23 07:05:03,453] [INFO    ] ws_server — WebSocket running → ws://0.0.0.0:8766
+[2026-02-23 07:05:03,454] [INFO    ] ws_server — Aguardando conexões do frontend...
+[2026-02-23 07:05:03,684] [INFO    ] websockets.server — connection open
+[2026-02-23 07:05:03,685] [INFO    ] ws_server — CLIENT [0416] connected  (total=1)
+[2026-02-23 07:05:03,689] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:05:03,689] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:05:03,689] [INFO    ] mt5_feed — MT5 credentials not set → SIMULATED mode
+[2026-02-23 07:05:03,690] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:06:05,964] [INFO    ] websockets.server — connection open
+[2026-02-23 07:06:05,964] [INFO    ] ws_server — CLIENT [1008] connected  (total=2)
+[2026-02-23 07:06:05,967] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:06:05,967] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:06:05,967] [INFO    ] mt5_feed — MT5 credentials not set → SIMULATED mode
+[2026-02-23 07:06:05,968] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:06:09,523] [INFO    ] ws_server — CLIENT [1008] disconnected (total=1)
+[2026-02-23 07:10:52,325] [INFO    ] websockets.server — server closing
+[2026-02-23 07:10:52,329] [INFO    ] ws_server — CLIENT [0416] disconnected (total=0)
+[2026-02-23 07:10:52,330] [INFO    ] websockets.server — server closed
+[2026-02-23 07:10:55,562] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:10:55,563] [INFO    ] ws_server — MARKET ANALYST PRO — WebSocket Server
+[2026-02-23 07:10:55,563] [INFO    ] ws_server — Symbol: XAUUSD | Port: 8766 | DB: True | ML: True | Cache: True
+[2026-02-23 07:10:55,564] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:10:55,564] [INFO    ] ai_synth — groq package not installed — using rule-based synthesis
+[2026-02-23 07:10:55,650] [WARNING ] ws_server — DB disabled — No module named 'psycopg2'
+[2026-02-23 07:10:55,650] [INFO    ] cache — redis package not installed — using in-memory cache
+[2026-02-23 07:10:55,651] [INFO    ] ws_server — OK: Redis connected
+[2026-02-23 07:10:55,864] [INFO    ] outcome_pred — No model file at models/outcome_predictor.pkl
+[2026-02-23 07:10:55,865] [INFO    ] ml_inference — ML pipeline ready — no model yet (train first)
+[2026-02-23 07:10:55,865] [INFO    ] ws_server — OK: ML pipeline loaded — {'pipeline_active': False, 'model_ready': False, 'is_trained': False, 'train_size': 0, 'val_accuracy': 0.0, 'model_path': 'models/outcome_predictor.pkl', 'model_type': 'none'}
+[2026-02-23 07:10:55,925] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:10:55,926] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:10:55,960] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:10:55,960] [INFO    ] ws_server — Feed source: MT5_LIVE
+[2026-02-23 07:10:55,962] [INFO    ] websockets.server — server listening on 0.0.0.0:8766
+[2026-02-23 07:10:55,963] [INFO    ] ws_server — WebSocket running → ws://0.0.0.0:8766
+[2026-02-23 07:10:55,963] [INFO    ] ws_server — Aguardando conexões do frontend...
+[2026-02-23 07:10:56,187] [INFO    ] websockets.server — connection open
+[2026-02-23 07:10:56,188] [INFO    ] ws_server — CLIENT [9168] connected  (total=1)
+[2026-02-23 07:10:56,190] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:10:56,190] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:10:56,201] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:10:56,202] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:13:41,385] [INFO    ] websockets.server — server closing
+[2026-02-23 07:13:41,387] [INFO    ] ws_server — CLIENT [9168] disconnected (total=0)
+[2026-02-23 07:13:41,387] [INFO    ] websockets.server — server closed
+[2026-02-23 07:13:44,110] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:13:44,111] [INFO    ] ws_server — MARKET ANALYST PRO — WebSocket Server
+[2026-02-23 07:13:44,111] [INFO    ] ws_server — Symbol: XAUUSD | Port: 8766 | DB: True | ML: True | Cache: True
+[2026-02-23 07:13:44,111] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:13:44,112] [INFO    ] ai_synth — groq package not installed — using rule-based synthesis
+[2026-02-23 07:13:44,480] [INFO    ] db — Database ready: sqlite
+[2026-02-23 07:13:44,480] [INFO    ] ws_server — OK: Database connected
+[2026-02-23 07:13:44,481] [INFO    ] cache — redis package not installed — using in-memory cache
+[2026-02-23 07:13:44,482] [INFO    ] ws_server — OK: Redis connected
+[2026-02-23 07:13:44,643] [INFO    ] outcome_pred — No model file at models/outcome_predictor.pkl
+[2026-02-23 07:13:44,644] [INFO    ] ml_inference — ML pipeline ready — no model yet (train first)
+[2026-02-23 07:13:44,644] [INFO    ] ws_server — OK: ML pipeline loaded — {'pipeline_active': False, 'model_ready': False, 'is_trained': False, 'train_size': 0, 'val_accuracy': 0.0, 'model_path': 'models/outcome_predictor.pkl', 'model_type': 'none'}
+[2026-02-23 07:13:44,684] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:13:44,685] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:13:44,712] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:13:44,712] [INFO    ] ws_server — Feed source: MT5_LIVE
+[2026-02-23 07:13:44,713] [INFO    ] websockets.server — server listening on 0.0.0.0:8766
+[2026-02-23 07:13:44,714] [INFO    ] ws_server — WebSocket running → ws://0.0.0.0:8766
+[2026-02-23 07:13:44,714] [INFO    ] ws_server — Aguardando conexões do frontend...
+[2026-02-23 07:13:45,203] [INFO    ] websockets.server — connection open
+[2026-02-23 07:13:45,204] [INFO    ] ws_server — CLIENT [9936] connected  (total=1)
+[2026-02-23 07:13:45,207] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:13:45,207] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:13:45,220] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:13:45,221] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:16:53,388] [INFO    ] ws_server — CLIENT [9936] disconnected (total=0)
+[2026-02-23 07:17:29,461] [INFO    ] websockets.server — connection open
+[2026-02-23 07:17:29,462] [INFO    ] ws_server — CLIENT [5376] connected  (total=1)
+[2026-02-23 07:17:29,467] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:17:29,468] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:17:29,546] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:17:29,547] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:27:10,197] [INFO    ] ws_server — CLIENT [5376] disconnected (total=0)
+[2026-02-23 07:27:10,848] [INFO    ] websockets.server — connection open
+[2026-02-23 07:27:10,849] [INFO    ] ws_server — CLIENT [4560] connected  (total=1)
+[2026-02-23 07:27:10,863] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:27:10,863] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:27:10,920] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:27:10,921] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:28:08,387] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=USTEC
+[2026-02-23 07:28:08,387] [INFO    ] orchestrator — Orchestrator ready | symbol=USTEC | step=1.0 | threshold=150.0 | mode=price_weighted
+[2026-02-23 07:28:08,405] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:28:08,407] [INFO    ] ws_server — Symbol switched → USTEC
+[2026-02-23 07:28:15,656] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:28:15,657] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:28:15,672] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:28:15,673] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:33:06,085] [INFO    ] websockets.server — server closing
+[2026-02-23 07:33:06,094] [INFO    ] ws_server — CLIENT [4560] disconnected (total=0)
+[2026-02-23 07:33:06,095] [INFO    ] websockets.server — server closed
+[2026-02-23 07:33:10,455] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:33:10,456] [INFO    ] ws_server — MARKET ANALYST PRO — WebSocket Server
+[2026-02-23 07:33:10,456] [INFO    ] ws_server — Symbol: XAUUSD | Port: 8766 | DB: True | ML: True | Cache: True
+[2026-02-23 07:33:10,457] [INFO    ] ws_server — ============================================================
+[2026-02-23 07:33:10,457] [INFO    ] ai_synth — groq package not installed — using rule-based synthesis
+[2026-02-23 07:33:10,511] [INFO    ] db — Database ready: sqlite
+[2026-02-23 07:33:10,512] [INFO    ] ws_server — OK: Database connected
+[2026-02-23 07:33:10,513] [INFO    ] cache — redis package not installed — using in-memory cache
+[2026-02-23 07:33:10,513] [INFO    ] ws_server — OK: Redis connected
+[2026-02-23 07:33:10,830] [INFO    ] outcome_pred — No model file at models/outcome_predictor.pkl
+[2026-02-23 07:33:10,830] [INFO    ] ml_inference — ML pipeline ready — no model yet (train first)
+[2026-02-23 07:33:10,831] [INFO    ] ws_server — OK: ML pipeline loaded — {'pipeline_active': False, 'model_ready': False, 'is_trained': False, 'train_size': 0, 'val_accuracy': 0.0, 'model_path': 'models/outcome_predictor.pkl', 'model_type': 'none'}
+[2026-02-23 07:33:10,889] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:33:10,889] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:33:10,927] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:33:10,927] [INFO    ] ws_server — Feed source: MT5_LIVE
+[2026-02-23 07:33:10,931] [INFO    ] websockets.server — server listening on 0.0.0.0:8766
+[2026-02-23 07:33:10,932] [INFO    ] ws_server — WebSocket running → ws://0.0.0.0:8766
+[2026-02-23 07:33:10,933] [INFO    ] ws_server — Aguardando conexões do frontend...
+[2026-02-23 07:33:11,214] [INFO    ] websockets.server — connection open
+[2026-02-23 07:33:11,215] [INFO    ] ws_server — CLIENT [9040] connected  (total=1)
+[2026-02-23 07:33:11,218] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:33:11,218] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:33:11,231] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:33:11,232] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:33:32,016] [INFO    ] ws_server — CLIENT [9040] disconnected (total=0)
+[2026-02-23 07:33:32,528] [INFO    ] websockets.server — connection open
+[2026-02-23 07:33:32,528] [INFO    ] ws_server — CLIENT [2272] connected  (total=1)
+[2026-02-23 07:33:32,531] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 07:33:32,531] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 07:33:32,553] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 07:33:32,556] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 07:51:40,379] [INFO    ] ws_server — CLIENT [2272] disconnected (total=0)
+[2026-02-23 08:32:30,424] [INFO    ] websockets.server — connection open
+[2026-02-23 08:32:30,434] [INFO    ] ws_server — CLIENT [7152] connected  (total=1)
+[2026-02-23 08:32:32,851] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:32:32,853] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:32:37,143] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:32:37,147] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 08:34:31,150] [INFO    ] ws_server — CLIENT [7152] disconnected (total=0)
+[2026-02-23 08:34:31,580] [INFO    ] websockets.server — connection open
+[2026-02-23 08:34:31,581] [INFO    ] ws_server — CLIENT [6784] connected  (total=1)
+[2026-02-23 08:34:31,588] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:34:31,589] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:34:31,661] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:34:31,662] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 08:34:41,044] [INFO    ] websockets.server — server closing
+[2026-02-23 08:34:41,051] [INFO    ] ws_server — CLIENT [6784] disconnected (total=0)
+[2026-02-23 08:34:41,052] [INFO    ] websockets.server — server closed
+[2026-02-23 08:34:45,109] [INFO    ] ws_server — ============================================================
+[2026-02-23 08:34:45,109] [INFO    ] ws_server — MARKET ANALYST PRO — WebSocket Server
+[2026-02-23 08:34:45,110] [INFO    ] ws_server — Symbol: XAUUSD | Port: 8766 | DB: True | ML: True | Cache: True
+[2026-02-23 08:34:45,110] [INFO    ] ws_server — ============================================================
+[2026-02-23 08:34:45,110] [INFO    ] ai_synth — groq package not installed — using rule-based synthesis
+[2026-02-23 08:34:45,171] [INFO    ] db — Database ready: sqlite
+[2026-02-23 08:34:45,171] [INFO    ] ws_server — OK: Database connected
+[2026-02-23 08:34:45,173] [INFO    ] cache — redis package not installed — using in-memory cache
+[2026-02-23 08:34:45,174] [INFO    ] ws_server — OK: Redis connected
+[2026-02-23 08:34:45,476] [INFO    ] outcome_pred — No model file at models/outcome_predictor.pkl
+[2026-02-23 08:34:45,477] [INFO    ] ml_inference — ML pipeline ready — no model yet (train first)
+[2026-02-23 08:34:45,477] [INFO    ] ws_server — OK: ML pipeline loaded — {'pipeline_active': False, 'model_ready': False, 'is_trained': False, 'train_size': 0, 'val_accuracy': 0.0, 'model_path': 'models/outcome_predictor.pkl', 'model_type': 'none'}
+[2026-02-23 08:34:45,546] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:34:45,547] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:34:45,597] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:34:45,608] [INFO    ] ws_server — Feed source: MT5_LIVE
+[2026-02-23 08:34:45,616] [INFO    ] websockets.server — server listening on 0.0.0.0:8766
+[2026-02-23 08:34:45,617] [INFO    ] ws_server — WebSocket running → ws://0.0.0.0:8766
+[2026-02-23 08:34:45,618] [INFO    ] ws_server — Aguardando conexões do frontend...
+[2026-02-23 08:34:45,968] [INFO    ] websockets.server — connection open
+[2026-02-23 08:34:45,969] [INFO    ] ws_server — CLIENT [1760] connected  (total=1)
+[2026-02-23 08:34:45,973] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:34:45,974] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:34:46,007] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:34:46,010] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 08:35:01,342] [INFO    ] ws_server — CLIENT [1760] disconnected (total=0)
+[2026-02-23 08:35:01,717] [INFO    ] websockets.server — connection open
+[2026-02-23 08:35:01,717] [INFO    ] ws_server — CLIENT [3312] connected  (total=1)
+[2026-02-23 08:35:01,719] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:35:01,720] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:35:01,734] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:35:01,736] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 08:36:02,830] [INFO    ] ws_server — CLIENT [3312] disconnected (total=0)
+[2026-02-23 08:36:03,244] [INFO    ] websockets.server — connection open
+[2026-02-23 08:36:03,245] [INFO    ] ws_server — CLIENT [7872] connected  (total=1)
+[2026-02-23 08:36:03,249] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:36:03,249] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:36:03,278] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:36:03,279] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 08:36:41,992] [INFO    ] websockets.server — server closing
+[2026-02-23 08:36:41,995] [INFO    ] ws_server — CLIENT [7872] disconnected (total=0)
+[2026-02-23 08:36:41,997] [INFO    ] websockets.server — server closed
+[2026-02-23 08:36:45,051] [INFO    ] ws_server — ============================================================
+[2026-02-23 08:36:45,052] [INFO    ] ws_server — MARKET ANALYST PRO — WebSocket Server
+[2026-02-23 08:36:45,052] [INFO    ] ws_server — Symbol: XAUUSD | Port: 8766 | DB: True | ML: True | Cache: True
+[2026-02-23 08:36:45,052] [INFO    ] ws_server — ============================================================
+[2026-02-23 08:36:45,053] [INFO    ] ai_synth — groq package not installed — using rule-based synthesis
+[2026-02-23 08:36:45,093] [INFO    ] db — Database ready: sqlite
+[2026-02-23 08:36:45,094] [INFO    ] ws_server — OK: Database connected
+[2026-02-23 08:36:45,095] [INFO    ] cache — redis package not installed — using in-memory cache
+[2026-02-23 08:36:45,096] [INFO    ] ws_server — OK: Redis connected
+[2026-02-23 08:36:45,345] [INFO    ] outcome_pred — No model file at models/outcome_predictor.pkl
+[2026-02-23 08:36:45,345] [INFO    ] ml_inference — ML pipeline ready — no model yet (train first)
+[2026-02-23 08:36:45,346] [INFO    ] ws_server — OK: ML pipeline loaded — {'pipeline_active': False, 'model_ready': False, 'is_trained': False, 'train_size': 0, 'val_accuracy': 0.0, 'model_path': 'models/outcome_predictor.pkl', 'model_type': 'none'}
+[2026-02-23 08:36:45,469] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:36:45,469] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:36:45,504] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:36:45,504] [INFO    ] ws_server — Feed source: MT5_LIVE
+[2026-02-23 08:36:45,506] [INFO    ] websockets.server — server listening on 0.0.0.0:8766
+[2026-02-23 08:36:45,506] [INFO    ] ws_server — WebSocket running → ws://0.0.0.0:8766
+[2026-02-23 08:36:45,507] [INFO    ] ws_server — Aguardando conexões do frontend...
+[2026-02-23 08:36:45,961] [INFO    ] websockets.server — connection open
+[2026-02-23 08:36:45,962] [INFO    ] ws_server — CLIENT [8832] connected  (total=1)
+[2026-02-23 08:36:45,967] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:36:45,967] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:36:45,994] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:36:45,996] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 08:36:52,179] [INFO    ] ws_server — CLIENT [8832] disconnected (total=0)
+[2026-02-23 08:36:52,601] [INFO    ] websockets.server — connection open
+[2026-02-23 08:36:52,602] [INFO    ] ws_server — CLIENT [0384] connected  (total=1)
+[2026-02-23 08:36:52,605] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:36:52,606] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:36:52,636] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:36:52,637] [INFO    ] ws_server — Symbol switched → XAUUSD
+[2026-02-23 08:45:28,712] [INFO    ] ws_server — CLIENT [0384] disconnected (total=0)
+[2026-02-23 08:45:32,225] [INFO    ] websockets.server — connection open
+[2026-02-23 08:45:32,227] [INFO    ] ws_server — CLIENT [4944] connected  (total=1)
+[2026-02-23 08:45:32,241] [INFO    ] analysts.cluster_closure_analyst — ClusterClosureAnalyst initialized max_clusters=500 symbol=XAUUSD
+[2026-02-23 08:45:32,242] [INFO    ] orchestrator — Orchestrator ready | symbol=XAUUSD | step=0.5 | threshold=100.0 | mode=price_weighted
+[2026-02-23 08:45:32,305] [INFO    ] mt5_feed — MT5 LIVE connected | account=65261682 | server=Exness-MT5Real11 | balance=0.2
+[2026-02-23 08:45:32,306] [INFO    ] ws_server — Symbol switched → XAUUSD

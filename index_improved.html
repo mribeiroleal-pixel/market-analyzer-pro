@@ -1,0 +1,12 @@
+<!-- ANTES: onclick inline -->
+<button onclick="setDrawTool('hline')">— H</button>
+<button onclick="setDrawTool('vline')">| V</button>
+
+<!-- DEPOIS: data attributes -->
+<div class="draw-tools">
+  <button class="draw-tool-btn" data-tool="hline" title="Horizontal line">— H</button>
+  <button class="draw-tool-btn" data-tool="vline" title="Vertical line">| V</button>
+  <button class="draw-tool-btn" data-tool="rect" title="Rectangle">▭</button>
+  <button class="draw-tool-btn" data-tool="trend" title="Trend line">↗</button>
+  <button class="draw-tool-btn" data-tool="none" title="Disable">✕</button>
+</div>

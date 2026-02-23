@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitor WS - MT5 + IA</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-2: #1d2230;
+      --text: #e8ecf3;
+      --muted: #9aa4b2;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+      --bad: #ef4444;
+      --line: #2a3140;
+      --accent: #60a5fa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+    .topbar {
+      display: grid;
+      grid-template-columns: 1.6fr auto auto auto auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    input, button {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    input { width: 100%; }
+    button {
+      cursor: pointer;
+      transition: .15s ease;
+    }
+    button:hover { border-color: var(--accent); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      min-height: 120px;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      margin-bottom: 8px;
+      background: var(--panel-2);
+    }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--muted);
+      display: inline-block;
+    }
+    .dot.ok { background: var(--ok); }
+    .dot.warn { background: var(--warn); }
+    .dot.bad { background: var(--bad); }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 6px 10px;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    .kv div:nth-child(odd) { color: var(--muted); }
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      word-break: break-word;
+    }
+    .wide {
+      grid-column: 1 / -1;
+    }
+    .logs {
+      margin-top: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .logs h2 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    #logBox {
+      background: #0b0d12;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      height: 300px;
+      overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .muted { color: var(--muted); font-size: 12px; }
+    @media (max-width: 980px) {
+      .topbar { grid-template-columns: 1fr 1fr; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Monitor de Saúde — WebSocket / MT5 / IA</h1>
+
+    <div class="topbar">
+      <input id="wsUrl" value="ws://127.0.0.1:8765" placeholder="ws://host:porta" />
+      <button id="btnConnect">Conectar</button>
+      <button id="btnDisconnect">Desconectar</button>
+      <button id="btnHealth">Healthcheck</button>
+      <button id="btnStatus">Engine Status</button>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Servidor WebSocket</h2>
+        <div id="serverBadge" class="badge"><span class="dot"></span><span>Desconectado</span></div>
+        <div class="kv">
+          <div>Conexão WS</div><div id="wsState">-</div>
+          <div>Clientes</div><div id="serverClients">-</div>
+          <div>Ticks processados</div><div id="serverTicks">-</div>
+          <div>Últ. atualização</div><div id="serverUpdated">-</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Feed MT5</h2>
+        <div id="feedBadge" class="badge"><span class="dot"></span><span>Sem dados</span></div>
+        <div class="kv">
+          <div>Conectado</div><div id="feedConnected">-</div>
+          <div>Simulação</div><div id="feedSim">-</div>
+          <div>Degradado</div><div id="feedDegraded">-</div>
+          <div>Falhas consecutivas</div><div id="feedFailures">-</div>
+          <div>Último tick</div><div id="feedLastTick">-</div>
+          <div>Símbolo</div><div id="feedSymbol">-</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>IA (Groq)</h2>
+        <div id="aiBadge" class="badge"><span class="dot"></span><span>Sem dados</span></div>
+        <div class="kv">
+          <div>Disponível</div><div id="aiAvailable">-</div>
+          <div>Degradado</div><div id="aiDegraded">-</div>
+          <div>Chamadas</div><div id="aiCalls">-</div>
+          <div>Sucesso / Erro</div><div id="aiSuccessError">-</div>
+          <div>Falhas consecutivas</div><div id="aiConsecFail">-</div>
+          <div>Latência média (ms)</div><div id="aiAvgLatency">-</div>
+          <div>Último sucesso</div><div id="aiLastSuccess">-</div>
+          <div class="wide">Último erro</div><div id="aiLastError" class="mono wide">-</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="logs">
+      <h2>Eventos / Logs recebidos</h2>
+      <div id="logBox"></div>
+      <div class="row">
+        <button id="btnClearLogs">Limpar logs</button>
+        <label class="muted"><input type="checkbox" id="autoScroll" checked /> Auto-scroll</label>
+        <label class="muted"><input type="checkbox" id="showRaw" checked /> Mostrar payload bruto</label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let ws = null;
+    let lastHealth = null;
+    let lastEngineStatus = null;
+
+    const $ = (id) => document.getElementById(id);
+
+    function setBadge(elId, text, level = "neutral") {
+      const el = $(elId);
+      const dotClass = level === "ok" ? "ok" : level === "warn" ? "warn" : level === "bad" ? "bad" : "";
+      el.innerHTML = `<span class="dot ${dotClass}"></span><span>${text}</span>`;
+    }
+
+    function fmtTs(ts) {
+      if (!ts) return "-";
+      const n = Number(ts);
+      if (!Number.isFinite(n)) return String(ts);
+      const ms = n < 1e12 ? n * 1000 : n;
+      return new Date(ms).toLocaleString("pt-BR");
+    }
+
+    function fmtNum(v, digits = 2) {
+      const n = Number(v);
+      return Number.isFinite(n) ? n.toFixed(digits) : "-";
+    }
+
+    function safeGet(obj, ...keys) {
+      let cur = obj;
+      for (const k of keys) {
+        if (cur == null) return undefined;
+        cur = cur[k];
+      }
+      return cur;
+    }
+
+    function logLine(line, kind = "info") {
+      const box = $("logBox");
+      const ts = new Date().toLocaleTimeString("pt-BR");
+      const prefix = kind === "error" ? "[ERRO]" : kind === "warn" ? "[WARN]" : "[INFO]";
+      box.textContent += `${ts} ${prefix} ${line}\n`;
+      if ($("autoScroll").checked) box.scrollTop = box.scrollHeight;
+    }
+
+    function sendJson(payload) {
+      if (!ws || ws.readyState !== WebSocket.OPEN) {
+        logLine("WebSocket não está conectado.", "warn");
+        return;
+      }
+      ws.send(JSON.stringify(payload));
+      logLine(`Enviado: ${JSON.stringify(payload)}`, "info");
+    }
+
+    function updateConnectionUi() {
+      const stateMap = {
+        [WebSocket.CONNECTING]: "CONNECTING",
+        [WebSocket.OPEN]: "OPEN",
+        [WebSocket.CLOSING]: "CLOSING",
+        [WebSocket.CLOSED]: "CLOSED"
+      };
+      const state = ws ? stateMap[ws.readyState] : "CLOSED";
+      $("wsState").textContent = state;
+
+      if (!ws) {
+        setBadge("serverBadge", "Desconectado", "bad");
+      } else if (ws.readyState === WebSocket.OPEN) {
+        setBadge("serverBadge", "Conectado", "ok");
+      } else if (ws.readyState === WebSocket.CONNECTING) {
+        setBadge("serverBadge", "Conectando...", "warn");
+      } else {
+        setBadge("serverBadge", "Desconectado", "bad");
+      }
+    }
+
+    function applyHealthcheck(data) {
+      lastHealth = data || {};
+      const server = data.server || {};
+      const feed = data.feed || {};
+      const ai = data.ai || {};
+
+      // Servidor
+      $("serverClients").textContent = safeGet(server, "clients") ?? safeGet(server, "client_count") ?? "-";
+      $("serverTicks").textContent = safeGet(server, "tick_counter") ?? safeGet(server, "ticks_processed") ?? "-";
+      $("serverUpdated").textContent = fmtTs(data.timestamp || Date.now()/1000);
+
+      // Feed
+      const feedConnected = safeGet(feed, "connected");
+      const feedSimulation = safeGet(feed, "simulation_mode") ?? safeGet(feed, "is_simulation");
+      const feedDegraded = safeGet(feed, "degraded");
+      $("feedConnected").textContent = String(feedConnected ?? "-");
+      $("feedSim").textContent = String(feedSimulation ?? "-");
+      $("feedDegraded").textContent = String(feedDegraded ?? "-");
+      $("feedFailures").textContent = safeGet(feed, "consecutive_failures") ?? safeGet(feed, "failures") ?? "-";
+      $("feedLastTick").textContent = fmtTs(safeGet(feed, "last_tick_at"));
+      $("feedSymbol").textContent = safeGet(feed, "symbol") ?? "-";
+
+      if (feedConnected === true && feedSimulation !== true) {
+        setBadge("feedBadge", "Feed online", "ok");
+      } else if (feedSimulation === true || feedDegraded === true) {
+        setBadge("feedBadge", "Feed degradado/simulação", "warn");
+      } else if (feedConnected === false) {
+        setBadge("feedBadge", "Feed offline", "bad");
+      } else {
+        setBadge("feedBadge", "Feed sem dados", "warn");
+      }
+
+      // IA
+      const aiAvailable = safeGet(ai, "available");
+      const aiDegraded = data.degraded === true || safeGet(ai, "degraded") === true;
+      const aiCalls = safeGet(ai, "total_calls");
+      const aiSuccess = safeGet(ai, "total_success");
+      const aiErrors = safeGet(ai, "total_errors");
+      $("aiAvailable").textContent = String(aiAvailable ?? "-");
+      $("aiDegraded").textContent = String(aiDegraded ?? "-");
+      $("aiCalls").textContent = aiCalls ?? "-";
+      $("aiSuccessError").textContent = `${aiSuccess ?? "-"} / ${aiErrors ?? "-"}`;
+      $("aiConsecFail").textContent = safeGet(ai, "consecutive_failures") ?? "-";
+      $("aiAvgLatency").textContent = fmtNum(safeGet(ai, "avg_latency_ms"));
+      $("aiLastSuccess").textContent = fmtTs(safeGet(ai, "last_success_at"));
+      $("aiLastError").textContent = String(safeGet(ai, "last_error") ?? "-");
+
+      if (aiAvailable === true && !aiDegraded) {
+        setBadge("aiBadge", "IA saudável", "ok");
+      } else if (aiAvailable === true && aiDegraded) {
+        setBadge("aiBadge", "IA degradada", "warn");
+      } else if (aiAvailable === false) {
+        setBadge("aiBadge", "IA indisponível", "bad");
+      } else {
+        setBadge("aiBadge", "IA sem dados", "warn");
+      }
+
+      // Badge servidor geral via health
+      if (data.healthy === true && data.degraded !== true) {
+        setBadge("serverBadge", "Servidor saudável", "ok");
+      } else if (data.healthy === true && data.degraded === true) {
+        setBadge("serverBadge", "Servidor degradado", "warn");
+      } else if (data.healthy === false) {
+        setBadge("serverBadge", "Servidor com falha", "bad");
+      }
+    }
+
+    function applyEngineStatus(data) {
+      lastEngineStatus = data || {};
+      const server = data.server || data;
+      const feed = data.feed || {};
+      const ai = data.ai_synthesizer || data.ai || {};
+
+      $("serverClients").textContent = safeGet(server, "clients") ?? "-";
+      $("serverTicks").textContent = safeGet(server, "tick_counter") ?? "-";
+      $("serverUpdated").textContent = fmtTs(data.timestamp || Date.now()/1000);
+
+      if (Object.keys(feed).length) {
+        $("feedConnected").textContent = String(safeGet(feed, "connected") ?? "-");
+        $("feedSim").textContent = String(safeGet(feed, "simulation_mode") ?? "-");
+        $("feedDegraded").textContent = String(safeGet(feed, "degraded") ?? "-");
+        $("feedFailures").textContent = safeGet(feed, "consecutive_failures") ?? "-";
+        $("feedLastTick").textContent = fmtTs(safeGet(feed, "last_tick_at"));
+        $("feedSymbol").textContent = safeGet(feed, "symbol") ?? "-";
+      }
+
+      if (Object.keys(ai).length) {
+        $("aiAvailable").textContent = String(safeGet(ai, "available") ?? "-");
+        $("aiCalls").textContent = safeGet(ai, "total_calls") ?? "-";
+        $("aiSuccessError").textContent = `${safeGet(ai, "total_success") ?? "-"} / ${safeGet(ai, "total_errors") ?? "-"}`;
+        $("aiConsecFail").textContent = safeGet(ai, "consecutive_failures") ?? "-";
+        $("aiAvgLatency").textContent = fmtNum(safeGet(ai, "avg_latency_ms"));
+        $("aiLastSuccess").textContent = fmtTs(safeGet(ai, "last_success_at"));
+        $("aiLastError").textContent = String(safeGet(ai, "last_error") ?? "-");
+      }
+    }
+
+    function handleMessage(raw) {
+      let msg;
+      try {
+        msg = JSON.parse(raw);
+      } catch {
+        logLine(`Mensagem não-JSON recebida: ${raw}`, "warn");
+        return;
+      }
+
+      const type = msg.type || "unknown";
+      const data = msg.data ?? msg;
+
+      if ($("showRaw").checked) {
+        logLine(`Recebido [${type}]: ${JSON.stringify(msg)}`);
+      } else {
+        logLine(`Recebido [${type}]`);
+      }
+
+      switch (type) {
+        case "connected":
+          logLine("Handshake inicial recebido.");
+          break;
+
+        case "engine_status":
+          applyEngineStatus(data);
+          break;
+
+        case "healthcheck":
+          applyHealthcheck(data);
+          break;
+
+        case "error":
+          logLine(`Erro do servidor: ${JSON.stringify(data)}`, "error");
+          break;
+
+        default:
+          // mantém logs, mas não precisa tratar tudo
+          break;
+      }
+    }
+
+    function connect() {
+      const url = $("wsUrl").value.trim();
+      if (!url) return;
+
+      if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) {
+        logLine("Já existe conexão ativa/abrindo.", "warn");
+        return;
+      }
+
+      ws = new WebSocket(url);
+      updateConnectionUi();
+      logLine(`Conectando em ${url}...`);
+
+      ws.onopen = () => {
+        updateConnectionUi();
+        logLine("WebSocket conectado.", "info");
+
+        // Pede status logo após conectar
+        sendJson({ type: "get_status" });
+        sendJson({ type: "healthcheck" });
+      };
+
+      ws.onmessage = (ev) => handleMessage(ev.data);
+
+      ws.onerror = () => {
+        logLine("Erro no WebSocket.", "error");
+        updateConnectionUi();
+      };
+
+      ws.onclose = (ev) => {
+        logLine(`WebSocket fechado (code=${ev.code}, reason=${ev.reason || "sem motivo"}).`, "warn");
+        updateConnectionUi();
+      };
+    }
+
+    function disconnect() {
+      if (ws) {
+        ws.close();
+      }
+    }
+
+    $("btnConnect").addEventListener("click", connect);
+    $("btnDisconnect").addEventListener("click", disconnect);
+    $("btnHealth").addEventListener("click", () => sendJson({ type: "healthcheck" }));
+    $("btnStatus").addEventListener("click", () => sendJson({ type: "get_status" }));
+    $("btnClearLogs").addEventListener("click", () => { $("logBox").textContent = ""; });
+
+    $("wsUrl").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") connect();
+    });
+
+    updateConnectionUi();
+    logLine("Painel carregado. Informe a URL do WebSocket e clique em Conectar.");
+  </script>
+</body>
+</html>

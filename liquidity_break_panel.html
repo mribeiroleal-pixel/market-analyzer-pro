@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquidity Break Analyzer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0a0e27;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #ff6b35;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: #1a1f3a;
+            border: 2px solid #ff6b35;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+        }
+        
+        .card h2 {
+            color: #ff6b35;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #b0b0b0;
+            font-size: 0.9em;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            background: #0f1428;
+            border: 1px solid #ff6b35;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-size: 0.95em;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #ff8550;
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff6b35, #ff8550);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-box {
+            background: #0f1428;
+            border: 1px solid #ff6b35;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.5em;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+        
+        .breaks-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .breaks-table thead {
+            background: rgba(255, 107, 53, 0.1);
+        }
+        
+        .breaks-table th, .breaks-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+        }
+        
+        .breaks-table th {
+            color: #ff6b35;
+            font-weight: bold;
+        }
+        
+        .break-type {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .sellers-higher {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+        }
+        
+        .buyers-lower {
+            background: rgba(255, 0, 110, 0.2);
+            color: #ff006e;
+        }
+        
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .error {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .status.training {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+        
+        .status.success {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Liquidity Break Analyzer</h1>
+        
+        <div class="grid">
+            <!-- PAINEL DE ENTRADA -->
+            <div class="card">
+                <h2>📊 Registrar Quebra</h2>
+                
+                <div class="form-group">
+                    <label>Tipo de Quebra</label>
+                    <select id="breakType">
+                        <option value="SELLERS_REPRICED_HIGHER">Sellers Repriced Higher</option>
+                        <option value="BUYERS_REPRICED_LOWER">Buyers Repriced Lower</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Preço da Quebra</label>
+                    <input type="number" id="priceBroken" placeholder="2650.50" step="0.01">
+                </div>
+                
+                <div class="form-group">
+                    <label>Delta</label>
+                    <input type="number" id="delta" placeholder="150.5" step="0.1">
+                </div>
+                
+                <div class="form-group">
+                    <label>Volume</label>
+                    <input type="number" id="volume" placeholder="1000.0" step="0.1">
+                </div>
+                
+                <div class="form-group">
+                    <label>Wick Top %</label>
+                    <input type="number" id="wickTop" placeholder="0.4" step="0.01" min="0" max="1">
+                </div>
+                
+                <div class="form-group">
+                    <label>Wick Bot %</label>
+                    <input type="number" id="wickBot" placeholder="0.2" step="0.01" min="0" max="1">
+                </div>
+                
+                <div class="form-group">
+                    <label>Confiança (%)</label>
+                    <input type="number" id="confidence" value="70" step="5" min="0" max="100">
+                </div>
+                
+                <div class="form-group">
+                    <label>É Estrutural?</label>
+                    <select id="isStructural">
+                        <option value="false">Não</option>
+                        <option value="true">Sim</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Notas</label>
+                    <textarea id="notes" placeholder="Observações..."></textarea>
+                </div>
+                
+                <button onclick="addLiquidityBreak()">✅ Registrar Quebra</button>
+                <div id="addMessage" class="status"></div>
+            </div>
+            
+            <!-- PAINEL ML -->
+            <div class="card">
+                <h2>🤖 Machine Learning</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">Total</div>
+                        <div class="stat-value" id="totalBreaks">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Sellers</div>
+                        <div class="stat-value" id="sellersCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Buyers</div>
+                        <div class="stat-value" id="buyersCount">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Estruturais</div>
+                        <div class="stat-value" id="structuralCount">0</div>
+                    </div>
+                </div>
+                
+                <button onclick="trainML()">🎓 Treinar Modelo</button>
+                <div id="trainMessage" class="status"></div>
+                
+                <button onclick="getMLStatus()" style="margin-top: 10px;">📊 Ver Status ML</button>
+                <div id="mlStatus" style="margin-top: 10px; padding: 10px; background: rgba(255,107,53,0.1); border-radius: 5px; display: none;">
+                    <div><strong>Estado:</strong> <span id="mlStatusText">-</span></div>
+                    <div><strong>Amostras:</strong> <span id="mlSamples">0</span></div>
+                </div>
+                
+                <button onclick="testPrediction()" style="margin-top: 10px;">🔮 Testar Predição</button>
+            </div>
+        </div>
+        
+        <!-- HISTÓRICO DE QUEBRAS -->
+        <div class="card" style="grid-column: 1/-1;">
+            <h2>📜 Histórico de Quebras</h2>
+            <button onclick="loadBreaks()" style="margin-bottom: 15px;">🔄 Atualizar</button>
+            <div id="breaksContainer" style="max-height: 400px; overflow-y: auto;"></div>
+        </div>
+    </div>
+    
+    <script>
+        const WS_URL = 'ws://localhost:8766';
+        let ws = null;
+        
+        // Conectar WebSocket
+        function connectWS() {
+            ws = new WebSocket(WS_URL);
+            
+            ws.onopen = () => {
+                console.log('✅ Conectado ao servidor');
+                getMLStatus();
+                loadBreaks();
+            };
+            
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                handleMessage(data);
+            };
+            
+            ws.onclose = () => {
+                console.log('❌ Desconectado');
+                setTimeout(connectWS, 3000);
+            };
+        }
+        
+        function handleMessage(data) {
+            const type = data.type;
+            
+            if (type === 'liquidity_break_added') {
+                showMessage('addMessage', data.success ? 'Quebra registrada!' : 'Erro ao registrar', data.success);
+                if (data.success) loadBreaks();
+            }
+            
+            if (type === 'liquidity_breaks_list') {
+                displayBreaks(data.data);
+            }
+            
+            if (type === 'liquidity_ml_trained') {
+                showMessage('trainMessage', data.success ? 'Modelo treinado!' : 'Erro ao treinar', data.success);
+            }
+            
+            if (type === 'liquidity_ml_status') {
+                displayMLStatus(data);
+            }
+            
+            if (type === 'liquidity_prediction') {
+                showMessage('trainMessage', `Predição: ${data.break_type} (${(data.confidence * 100).toFixed(0)}%)`, true);
+            }
+        }
+        
+        function showMessage(elementId, message, success) {
+            const el = document.getElementById(elementId);
+            el.textContent = message;
+            el.className = `status ${success ? 'success' : 'error'}`;
+            el.style.display = 'block';
+            setTimeout(() => el.style.display = 'none', 5000);
+        }
+        
+        function addLiquidityBreak() {
+            const breakType = document.getElementById('breakType').value;
+            const priceBroken = parseFloat(document.getElementById('priceBroken').value);
+            const delta = parseFloat(document.getElementById('delta').value);
+            const volume = parseFloat(document.getElementById('volume').value);
+            const wickTop = parseFloat(document.getElementById('wickTop').value);
+            const wickBot = parseFloat(document.getElementById('wickBot').value);
+            const confidence = parseFloat(document.getElementById('confidence').value) / 100;
+            const isStructural = document.getElementById('isStructural').value === 'true';
+            const notes = document.getElementById('notes').value;
+            
+            ws.send(JSON.stringify({
+                type: 'liquidity_break_command',
+                command: 'add_liquidity_break',
+                timestamp: Date.now() / 1000,
+                symbol: 'XAUUSD',
+                type: breakType,
+                price_broken: priceBroken,
+                delta: delta,
+                volume: volume,
+                wick_top: wickTop,
+                wick_bot: wickBot,
+                confidence_manual: confidence,
+                is_structural: isStructural,
+                notes: notes,
+            }));
+        }
+        
+        function loadBreaks() {
+            ws.send(JSON.stringify({
+                type: 'liquidity_break_command',
+                command: 'get_liquidity_breaks',
+                symbol: 'XAUUSD',
+            }));
+        }
+        
+        function displayBreaks(breaks) {
+            const container = document.getElementById('breaksContainer');
+            
+            if (!breaks || breaks.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #999;">Nenhuma quebra registrada</p>';
+                return;
+            }
+            
+            let html = '<table class="breaks-table"><thead><tr><th>ID</th><th>Tipo</th><th>Preço</th><th>Delta</th><th>Confiança</th><th>Estrutural</th></tr></thead><tbody>';
+            
+            breaks.forEach(b => {
+                const typeClass = b.type === 'SELLERS_REPRICED_HIGHER' ? 'sellers-higher' : 'buyers-lower';
+                const shortType = b.type === 'SELLERS_REPRICED_HIGHER' ? 'Sellers' : 'Buyers';
+                html += `
+                    <tr>
+                        <td>#${b.id}</td>
+                        <td><span class="break-type ${typeClass}">${shortType}</span></td>
+                        <td>${b.price_broken?.toFixed(2) || '-'}</td>
+                        <td>${b.delta?.toFixed(1) || '-'}</td>
+                        <td>${((b.confidence_manual || 0.5) * 100).toFixed(0)}%</td>
+                        <td>${b.is_structural ? '⭐' : '-'}</td>
+                    </tr>
+                `;
+            });
+            
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+        
+        function trainML() {
+            showMessage('trainMessage', '🎓 Treinando modelo...', true);
+            ws.send(JSON.stringify({
+                type: 'liquidity_break_command',
+                command: 'train_liquidity_ml',
+            }));
+        }
+        
+        function getMLStatus() {
+            ws.send(JSON.stringify({
+                type: 'liquidity_break_command',
+                command: 'get_liquidity_ml_status',
+            }));
+        }
+        
+        function displayMLStatus(data) {
+            document.getElementById('totalBreaks').textContent = data.stats.total;
+            document.getElementById('sellersCount').textContent = data.stats.sellers_repriced_higher;
+            document.getElementById('buyersCount').textContent = data.stats.buyers_repriced_lower;
+            document.getElementById('structuralCount').textContent = data.stats.structural_breaks;
+            
+            document.getElementById('mlStatusText').textContent = data.is_trained ? '✅ Treinado' : '❌ Não treinado';
+            document.getElementById('mlSamples').textContent = data.dataset_size;
+            document.getElementById('mlStatus').style.display = 'block';
+        }
+        
+        function testPrediction() {
+            const delta = parseFloat(document.getElementById('delta').value) || 100;
+            const volume = parseFloat(document.getElementById('volume').value) || 1000;
+            const wickTop = parseFloat(document.getElementById('wickTop').value) || 0.4;
+            const wickBot = parseFloat(document.getElementById('wickBot').value) || 0.2;
+            
+            ws.send(JSON.stringify({
+                type: 'liquidity_break_command',
+                command: 'predict_liquidity_break',
+                delta: delta,
+                volume: volume,
+                wick_top: wickTop,
+                wick_bot: wickBot,
+                confidence: 0.5,
+            }));
+        }
+        
+        // Iniciar
+        connectWS();
+    </script>
+</body>
+</html>
