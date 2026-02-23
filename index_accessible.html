@@ -1,0 +1,39 @@
+<!-- ANTES: Sem acessibilidade -->
+<input type="range" id="thresholdSlider" min="10" max="5000" value="100" />
+
+<!-- DEPOIS: Com acessibilidade completa -->
+<div class="ctrl-group">
+  <label for="thresholdSlider" class="ctrl-label">
+    Δ Threshold
+    <span class="help-icon" title="Delta threshold para detecção de cluster" aria-describedby="thresholdHelp">ⓘ</span>
+  </label>
+  
+  <input 
+    type="range" 
+    id="thresholdSlider" 
+    min="10" 
+    max="5000" 
+    value="100" 
+    step="10"
+    aria-labelledby="thresholdLabel"
+    aria-describedby="thresholdHelp"
+    aria-valuemin="10"
+    aria-valuemax="5000"
+    aria-valuenow="100"
+    aria-valuetext="100 delta"
+  />
+  
+  <span class="ctrl-value" id="thresholdValue" aria-live="polite">100</span>
+  
+  <small id="thresholdHelp" class="help-text">
+    Define o limite de delta acumulado para fechar um cluster (10-5000)
+  </small>
+</div>
+
+<!-- Atualizar aria-valuenow quando muda -->
+<script>
+document.getElementById('thresholdSlider').addEventListener('input', (e) => {
+  e.target.setAttribute('aria-valuenow', e.target.value);
+  e.target.setAttribute('aria-valuetext', `${e.target.value} delta`);
+});
+</script>

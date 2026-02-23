@@ -1,15 +1,47 @@
-from .base import VolumeEngine
-from .tick_velocity import TickVelocityEngine
-from .spread_weight import SpreadWeightEngine
-from .micro_cluster import MicroClusterEngine
-from .atr_normalize import ATRNormalizeEngine
-from .imbalance_detector import ImbalanceDetectorEngine
+"""Analysts Module"""
 
-__all__ = [
-    "VolumeEngine",
-    "TickVelocityEngine",
-    "SpreadWeightEngine",
-    "MicroClusterEngine",
-    "ATRNormalizeEngine",
-    "ImbalanceDetectorEngine",
-]
+class BaseAnalyst:
+    pass
+
+class AbsorptionAnalyst(BaseAnalyst):
+    pass
+
+class LiquiditySweepAnalyst(BaseAnalyst):
+    pass
+
+class ImbalanceAnalyst(BaseAnalyst):
+    pass
+
+class VolumeProfileAnalyst(BaseAnalyst):
+    pass
+
+class ExecutionStyleAnalyst(BaseAnalyst):
+    pass
+
+class DeltaFlowAnalyst(BaseAnalyst):
+    pass
+
+class ClusterClosureAnalyst(BaseAnalyst):
+    def __init__(self, config):
+        self.config = config
+    
+    def feed_tick(self, tick):
+        pass
+    
+    def on_cluster_close(self, **kwargs):
+        class Result:
+            classification = "NEUTRO"
+            confidence = 0.5
+            details = {
+                "cluster_id": 1,
+                "price_open": 0,
+                "price_close": 0,
+                "delta_final": 0,
+            }
+        return Result()
+    
+    def get_realtime_status(self):
+        return {}
+    
+    def switch_symbol(self, symbol):
+        pass
